@@ -1,4 +1,5 @@
 package com.example.mortgagecalculator
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -13,15 +14,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pf.getPrefernces()
+        pf.getPreferences(Mortgage())
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setContentView(R.layout.activity_main)
 
     }
 
+
+
     fun modifyData(view: View) {
-        val myIntent = Intent(this, Mortgage.mortgage)
+        val myIntent = Intent(this, )
         this.startActivity(myIntent)
     }
 

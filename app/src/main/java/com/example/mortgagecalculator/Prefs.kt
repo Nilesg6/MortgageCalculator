@@ -14,22 +14,23 @@ class Prefs (context1: Context) {
             context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
         var editor = s?.edit()
         if (editor != null) {
-            editor.putFloat(Mortgage.PREFERENCE_AMOUNT, mort.getAmount())
+            editor.putFloat(Mortgage.PREFERENCE_AMOUNT, Mortgage.getAmount())
         }
         if (editor != null) {
-            editor.putInt(Mortgage.PREFERENCE_YEARS, mort.getYears())
+            editor.putInt(Mortgage.PREFERENCE_YEARS, Mortgage.getYears())
         }
         if (editor != null) {
-            editor.putFloat(Mortgage.PREFERENCE_RATE, mort.getRate())
+            editor.putFloat(Mortgage.PREFERENCE_RATE, Mortgage.getRate())
         }
     }
     fun getPreferences(mort: Mortgage)
     {
-        var s: SharedPreferences? = ________
+        var s: SharedPreferences? =
+            context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
         if (s != null) {
-            mort.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, years))
-            mort.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT, amount))
-            mort.setRate(s.getFloat(Mortgage.PREFERENCE_RATE, rate))
+            Mortgage.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, years))
+            Mortgage.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT, amount))
+            Mortgage.setRate(s.getFloat(Mortgage.PREFERENCE_RATE, rate))
         }
     }
 }

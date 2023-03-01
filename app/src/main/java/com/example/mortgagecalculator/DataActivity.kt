@@ -23,15 +23,15 @@ class DataActivity : AppCompatActivity() {
         val rb10 = binding.ten
         val rb15 = binding.fifteen
 
-        if( mortgage.getYears( ) == 10 ) {
+        if( Mortgage.getYears( ) == 10 ) {
             rb10.setChecked( true );
-        } else if( mortgage.getYears( ) == 15 ) {
+        } else if( Mortgage.getYears( ) == 15 ) {
             rb15.setChecked( true );
         } // else do nothing (default is 30)
         val rateET = binding.dataRate
-        rateET.setText(mortgage.getRate().toString())
+        rateET.setText(Mortgage.getRate().toString())
         val amountET = binding.dataAmount
-        amountET.setText(mortgage.getAmount().toString())
+        amountET.setText(Mortgage.getAmount().toString())
     }
     fun updateMortgageObject()
     {
@@ -45,20 +45,20 @@ class DataActivity : AppCompatActivity() {
             years = 10
         else if (rb15.isChecked)
             years = 15
-        mortgage.setYears(years)
+        Mortgage.setYears(years)
         val rateET = binding.dataRate
         val rateString:String = rateET.getText().toString()
         val amountString = amountET.text.toString()
         try {
             val amount = amountString.toFloat()
-            mortgage.setAmount(amount)
+            Mortgage.setAmount(amount)
             val rate: Float = rateString.toFloat()
-            mortgage.setRate(rate)
-            p.setPreferences(mortgage)
+            Mortgage.setRate(rate)
+            p.setPreferences(Mortgage())
 
         } catch (nfe: NumberFormatException) {
-            mortgage.setAmount(100000.0f)
-            mortgage.setRate(.035f)
+            Mortgage.setAmount(100000.0f)
+            Mortgage.setRate(.035f)
         }
     }
 
