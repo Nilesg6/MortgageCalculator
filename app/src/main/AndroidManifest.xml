@@ -16,10 +16,10 @@
             </intent-filter>
         </activity>
 
-<!--        <activity-->
-<!--            android:name="______________________"-->
-<!--            android:screenOrientation="portrait" >-->
-<!--        </activity>-->
+        <activity
+            android:name=".DataActivity"
+            android:screenOrientation="portrait" >
+        </activity>
 
     </application>
 </manifest>
