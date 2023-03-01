@@ -3,19 +3,21 @@ package com.example.mortgagecalculator
 
 import java.text.DecimalFormat
 
-class Mortgage {
+class Mortgage(){
     val MONEY: DecimalFormat = DecimalFormat("$#,##0.00")
-
-    private var amount = 0f
-    private var years = 0
-    private var rate = 0f
-
-    fun Mortgage() {
-        setAmount(100000.0f)
-        setYears(30)
-        setRate(0.035f)
+    val m: MainActivity = MainActivity()
+    companion object
+    {
+        const val PREFERENCE_AMOUNT = "amount"
+        const val PREFERENCE_YEARS = "years"
+        const val PREFERENCE_RATE = "rate"
+        const val TAG = "MyActivity"
     }
-
+    private var amount:Float=200000.0f
+    private var years: Int =15
+    private var rate: Float =0.035f
+    fun Mortgage() {
+    }
     fun setAmount(newAmount: Float) {
         if (newAmount >= 0) amount = newAmount
     }
