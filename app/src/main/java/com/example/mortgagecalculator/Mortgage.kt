@@ -19,7 +19,7 @@ class Mortgage {
 
 
     private var amount:Float=200000.0f
-    private var years: Int =15
+    private var years: Int =30
     private var rate: Float =0.035f
 
 

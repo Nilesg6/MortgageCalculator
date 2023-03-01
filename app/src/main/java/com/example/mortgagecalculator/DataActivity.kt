@@ -28,17 +28,17 @@ class DataActivity : AppCompatActivity() {
 
 
 
-        if( mortgage.getYears( ) == 10 ) {
-            rb10.setChecked( true );
-            rb15.setSelected( false );
-            rb30.setSelected( false );
-
-        } else if( mortgage.getYears( ) == 15 ) {
-            rb15.setChecked( true );
-            rb10.setSelected( false );
-            rb30.setSelected( false );
-
-        } // else do nothing (default is 30)
+//        if( mortgage.getYears( ) == 10 ) {
+//            rb10.setChecked( true );
+//
+//
+//        } else if( mortgage.getYears( ) == 15 ) {
+//            rb15.setChecked( true );
+//
+//
+//        } else {
+//        // else do nothing (default is 30)
+//        }
         val rateET = binding.dataRate
         rateET.setText(mortgage.getRate().toString())
         val amountET = binding.dataAmount
