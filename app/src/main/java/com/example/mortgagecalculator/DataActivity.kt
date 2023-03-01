@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mortgagecalculator.databinding.ActivityDataBinding
 
 class DataActivity : AppCompatActivity() {
+    private val mortgage: Mortgage = MainActivity.mortgage
     private lateinit var binding: ActivityDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_data);
+        binding = ActivityDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buttonDone.setOnClickListener { view: View ->
             goBack(view)
@@ -22,16 +24,20 @@ class DataActivity : AppCompatActivity() {
     {
         val rb10 = binding.ten
         val rb15 = binding.fifteen
-
-        if( Mortgage.getYears( ) == 10 ) {
+        val rb30 = binding.thirty
+        if( mortgage.getYears( ) == 10 ) {
             rb10.setChecked( true );
-        } else if( Mortgage.getYears( ) == 15 ) {
+            rb15.setChecked( false );
+            rb30.setChecked( false );
+        } else if( mortgage.getYears( ) == 15 ) {
             rb15.setChecked( true );
+            rb10.setChecked( false );
+            rb30.setChecked( false );
         } // else do nothing (default is 30)
         val rateET = binding.dataRate
-        rateET.setText(Mortgage.getRate().toString())
+        rateET.setText(mortgage.getRate().toString())
         val amountET = binding.dataAmount
-        amountET.setText(Mortgage.getAmount().toString())
+        amountET.setText(mortgage.getAmount().toString())
     }
     fun updateMortgageObject()
     {
@@ -45,27 +51,31 @@ class DataActivity : AppCompatActivity() {
             years = 10
         else if (rb15.isChecked)
             years = 15
-        Mortgage.setYears(years)
+        mortgage.setYears(years)
         val rateET = binding.dataRate
         val rateString:String = rateET.getText().toString()
         val amountString = amountET.text.toString()
         try {
-            val amount = amountString.toFloat()
-            Mortgage.setAmount(amount)
-            val rate: Float = rateString.toFloat()
-            Mortgage.setRate(rate)
-            p.setPreferences(Mortgage())
+
+            mortgage.setAmount(amountString.toFloat())
+            mortgage.setRate(rateString.toFloat())
+            p.setPreferences(mortgage)
 
         } catch (nfe: NumberFormatException) {
-            Mortgage.setAmount(100000.0f)
-            Mortgage.setRate(.035f)
+            mortgage.setAmount(100000.0f)
+            mortgage.setRate(.035f)
         }
     }
 
     fun goBack(v: View?) {
         updateMortgageObject()
         finish()
-        overridePendingTransition(R.anim.fade_in_and_scale, R.anim.slide_from_left)
+        overridePendingTransition(R.anim.fade_in_and_scale, 0)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        updateView()
     }
 
 }
