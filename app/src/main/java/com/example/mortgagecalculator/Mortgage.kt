@@ -4,10 +4,11 @@ package com.example.mortgagecalculator
 import java.text.DecimalFormat
 
 class Mortgage {
+
     val MONEY: DecimalFormat = DecimalFormat("$#,##0.00")
     val m: MainActivity = MainActivity()
 
-    companion object
+    companion object mortgage
     {
         const val PREFERENCE_AMOUNT = "amount"
         const val PREFERENCE_YEARS = "years"

@@ -7,7 +7,7 @@ import com.example.mortgagecalculator.databinding.ActivityDataBinding
 
 class DataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDataBinding
-    public static
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_data);
@@ -21,29 +21,30 @@ class DataActivity : AppCompatActivity() {
     fun updateView()
     {
         val rb10 = binding.ten
-        val rb15 = ___________________
+        val rb15 = binding.fifteen
 
         if( mortgage.getYears( ) == 10 ) {
             rb10.setChecked( true );
-        } else if( ____________________ ) {
-            ________________________________
+        } else if( mortgage.getYears( ) == 15 ) {
+            rb15.setChecked( true );
         } // else do nothing (default is 30)
         val rateET = binding.dataRate
         rateET.setText(mortgage._________________toString())
-        val amountET = _____________________________
+        val amountET = binding.dataAmount
+        amountET.setText(mortgage.____toString())
     }
     fun updateMortgageObject()
     {
         val p = Prefs(this)
         val amountET = binding.dataAmount
-        val rb10 = _______________
+        val rb10 = binding.ten
 
-        val rb15 = ________________
+        val rb15 = binding.fifteen
         var years = 30
         if (rb10.isChecked)
             years = 10
         else if (rb15.isChecked)
-            _____________________
+            years = 15
         mortgage.setYears(years)
         val rateET = binding.dataRate
         val rateString:String = rateET.getText().toString()
@@ -52,7 +53,7 @@ class DataActivity : AppCompatActivity() {
             val amount = amountString.toFloat()
             mortgage.setAmount(amount)
             val rate: Float = rateString.toFloat()
-            ____________________________
+            mortgage.setRate(rate)
             p.setPreferences(mortgage)
 
         } catch (nfe: NumberFormatException) {
@@ -60,10 +61,11 @@ class DataActivity : AppCompatActivity() {
             mortgage.setRate(.035f)
         }
     }
+
     fun goBack(v: View?) {
         updateMortgageObject()
         finish()
-        overridePendingTransition(______________________, _____)
+//        overridePendingTransition(______________________, _____)
     }
 
 }
