@@ -25,14 +25,19 @@ class DataActivity : AppCompatActivity() {
         val rb10 = binding.ten
         val rb15 = binding.fifteen
         val rb30 = binding.thirty
+
+
+
         if( mortgage.getYears( ) == 10 ) {
             rb10.setChecked( true );
-            rb15.setChecked( false );
-            rb30.setChecked( false );
+            rb15.setSelected( false );
+            rb30.setSelected( false );
+
         } else if( mortgage.getYears( ) == 15 ) {
             rb15.setChecked( true );
-            rb10.setChecked( false );
-            rb30.setChecked( false );
+            rb10.setSelected( false );
+            rb30.setSelected( false );
+
         } // else do nothing (default is 30)
         val rateET = binding.dataRate
         rateET.setText(mortgage.getRate().toString())
