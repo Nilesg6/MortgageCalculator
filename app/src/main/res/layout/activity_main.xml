@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin = "@dimen/activity_margin"
-    tools:context="com.android.mortgage.MainActivity" >
+    tools:context="com.example.mortgagecalculator.MainActivity" >
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
