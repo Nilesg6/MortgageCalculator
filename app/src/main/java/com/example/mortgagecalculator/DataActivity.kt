@@ -3,8 +3,11 @@ package com.example.mortgagecalculator
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mortgagecalculator.databinding.ActivityDataBinding
+
 class DataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDataBinding
+    public static
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_data);

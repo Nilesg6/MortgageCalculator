@@ -25,11 +25,11 @@ class Prefs (context1: Context) {
     }
     fun getPrefernces(mort: Mortgage)
     {
-        var s: SharedPreferences? = _____________________________________
+        var s: SharedPreferences? =
         if (s != null) {
-            mort.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, 30))
-            mort.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT, 100000f))
-            mort.setRate(s.getFloat(Mortgage.PREFERENCE_YEARS, .035f))
+            mort.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, years))
+            mort.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT, amount))
+            mort.setRate(s.getFloat(Mortgage.PREFERENCE_RATE, rate))
         }
     }
 }

@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun modifyData(view: View) {
-        val myIntent = Intent(this, DataActivity)
+        val myIntent = Intent(this, Mortgage.object)
         this.startActivity(myIntent)
     }
 

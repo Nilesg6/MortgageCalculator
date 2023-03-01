@@ -6,6 +6,7 @@ import java.text.DecimalFormat
 class Mortgage {
     val MONEY: DecimalFormat = DecimalFormat("$#,##0.00")
     val m: MainActivity = MainActivity()
+
     companion object
     {
         const val PREFERENCE_AMOUNT = "amount"
