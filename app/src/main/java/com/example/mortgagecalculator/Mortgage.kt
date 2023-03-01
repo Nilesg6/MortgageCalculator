@@ -5,15 +5,24 @@ import java.text.DecimalFormat
 
 class Mortgage {
     val MONEY: DecimalFormat = DecimalFormat("$#,##0.00")
+    val m: MainActivity = MainActivity()
+    companion object
+    {
+        const val PREFERENCE_AMOUNT = "amount"
+        const val PREFERENCE_YEARS = "years"
+        const val PREFERENCE_RATE = "rate"
+        const val TAG = "MyActivity"
 
-    private var amount = 0f
-    private var years = 0
-    private var rate = 0f
+    }
+
+
+    private var amount:Float=200000.0f
+    private var years: Int =15
+    private var rate: Float =0.035f
+
 
     fun Mortgage() {
-        setAmount(100000.0f)
-        setYears(30)
-        setRate(0.035f)
+
     }
 
     fun setAmount(newAmount: Float) {
@@ -61,7 +70,10 @@ class Mortgage {
     }
 
     fun formattedTotalPayment(): String? {
-        return MONEY.format(totalPayment())
+        if(amount ==0.0f)
+            return "$0.0"
+        else
+            return MONEY.format(totalPayment())
     }
 
 }

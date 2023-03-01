@@ -6,7 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data)
+        setContentView(R.layout.activity_main)
 
     }
+
+    fun modifyData(view: View) {
+        val myIntent = Intent(this, DataActivity)
+        this.startActivity(myIntent)
+    }
+
+
 }
