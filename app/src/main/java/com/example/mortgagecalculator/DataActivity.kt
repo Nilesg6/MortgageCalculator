@@ -29,9 +29,9 @@ class DataActivity : AppCompatActivity() {
             rb15.setChecked( true );
         } // else do nothing (default is 30)
         val rateET = binding.dataRate
-        rateET.setText(mortgage._________________toString())
+        rateET.setText(mortgage.getRate().toString())
         val amountET = binding.dataAmount
-        amountET.setText(mortgage.____toString())
+        amountET.setText(mortgage.getAmount().toString())
     }
     fun updateMortgageObject()
     {
@@ -65,7 +65,7 @@ class DataActivity : AppCompatActivity() {
     fun goBack(v: View?) {
         updateMortgageObject()
         finish()
-//        overridePendingTransition(______________________, _____)
+        overridePendingTransition(R.anim.fade_in_and_scale, R.anim.slide_from_left)
     }
 
 }
